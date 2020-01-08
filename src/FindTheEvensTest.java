@@ -11,8 +11,13 @@ class FindTheEvensTest {
 	
 	
 	@Test
-	void getInputTest() {
+	void getPositiveInputTest() {
 		assertTrue(FindTheEvens.getInput() >= 0);
 	}
-
+	
+	@Test
+	void countEvensTest() {
+		assertEquals(1,FindTheEvens.countEvens(2));
+	}
+	
 }

@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.function.Supplier;
 
 public class FindTheEvens {
 
@@ -18,17 +19,27 @@ public class FindTheEvens {
 			2 4 6 8 
 			I just found 4 even numbers!
 		 */
+		
+		int userInput = getInput();
+		System.out.println(findEvens(userInput));
+		System.out.println("I just found " + countEvens(userInput) + " even number(s)!");
 
 	}
 	
 	public static Integer getInput() {
 		
 		Scanner input = new Scanner(System.in);
-		System.out.println("Enter a positive number.");
+		System.out.println("Enter a positive whole number.");
 		int output = input.nextInt();
-		input.close();
 		
-		return output; 
+		while(output <= 0 ) {
+			System.out.println("The number needs to be positive.");
+			output = input.nextInt();
+		}
+		
+		input.close();
+		return output;
+		 
 
 	}
 
@@ -47,6 +58,21 @@ public class FindTheEvens {
 		}
 		
 		return output;
+	}
+
+	public static Integer countEvens(int i) {
+		
+		int counter = 1;
+		int numEvens = 0; //count evens 
+		
+		while(counter <= i) {
+			
+			if(counter%2 == 0) {
+				numEvens++; //increment evens
+			}
+			counter++;
+		}
+		return numEvens;
 	}
 
 }
